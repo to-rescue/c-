@@ -1,0 +1,20 @@
+CSDN实例：
+#include <iostream>
+#include <unordered_map>
+using namespace std;
+int main()
+{
+	string key="123";
+	int value=4;
+	unordered_map<string, int> unomap;//创建一个key为string类型，value为int类型的unordered_map
+	unomap.emplace(key, value);//使用变量方式，插入一个元素
+	unomap.emplace("456", 7);//也可以直接写上key和value的值
+	cout<<unomap["123"];//通过key值来访问value
+
+	cout<<endl;
+	for(auto x:unomap)//遍历整个map，输出key及其对应的value值
+		cout<<x.first<<"  "<<x.second<<endl;
+
+	for(auto x:unomap)//遍历整个map，并根据其key值，查看对应的value值
+		cout<<unomap[x.first]<<endl;
+}
